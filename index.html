@@ -7,22 +7,209 @@
     <title>Hello</title>
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: lightgray;
+            padding: 10px;
+            color: black;
+        }
+        
+        .shop-name{
+            margin: 10px 0 0 20px;
+        }
+        
+        .nav-lists {
+            font-size: 20px;
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav-lists li {
+            margin: 8px 20px 0 0;
+        }
+        
+        .nav-lists form {
+            margin-right: 10px;
+            display: flex;
+        }
+        
+        .nav-lists input[type="text"] {
+            margin-right: 5px;
+            border-radius: 5px;
+            border: none;
+            padding-right: 15px;
+        }
+        
+        .nav-lists button[type="submit"] {
+            border-radius: 5px;
+            border: none;
+            padding: 5px 10px;
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 700px;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: scroll; /* 修正：常にスクロールバーを表示 */
+        }
+        
+        .swiper-wrapper {
+            display: flex;
+        }
+        
+        .swiper-slide {
+            flex: 0 0 50%;
+            position: relative;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .swiper-slide.interior img,
+        .swiper-slide.food2 img {
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .main-page{
+          background-color: #ffefd5;
+        }
+        .title{
+          background-color: #ffc7af;
+          font-size: 30px;
+        }
+        .footer-navbar{
+          background-color: darkgray;
+          padding: 40px 0;
+          width: 100vw;
+        }
+        .footer-nav-lists{
+          display: flex;
+          justify-content: center;
+        }
+    </style>
 </head>
 <body>
   <div class="container-fluid">
-    <form>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="Email">
+    <header>
+      <div class="heading">
+        <h1 class="shop-name">Casteria</h1>
       </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>Home</li>
+          <li>Food</li>
+          <li>Drink</li>
+          <li>お問い合わせ</li>
+          <li>
+            <form>
+              <input type="text" placeholder="Search">
+              <button type="submit">Search</button>
+            </form>
+          </li>
+        </ul>
       </div>
-      <button type="submit" class="btn btn-primary">Button</button>
-    </form>
+    </header>
   </div>
+  
+  <div class="main-page">
+    
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="img/interior.jpg" alt="Restaurant">
+      </div>
+      <div class="swiper-slide">
+        <img src="img/restaurant.jpg" alt="Restaurant">
+      </div>
+      <div class="swiper-slide">
+        <img src="img/food.jpg" alt="Restaurant">
+      </div>
+      <div class="swiper-slide">
+        <img src="img/food2.jpg" alt="Restaurant">
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+    <div class="infomation">
+      新型コロナウイルスに対する取り組みの最新情報をご案内
+    </div>
+    <div class="infomation-content">
+      <ul class="infomation1">
+        <div class="title">◾️衛生面に関して</div>
+        <li>マスクを着用しての接客</li>
+        <li>出勤前の検温の徹底</li>
+        <li>レジカウンターやドリンク受け渡し口等への飛沫防止ガードの設置</li>
+        <li>より頻度の高い手洗いの励行</li>
+        <li>テーブルにお客様用の消毒用アルコールの設置</li>
+        <li>従業員間の距離確保のため、休憩や研修時の客席利用</li>
+      </ul>
+      <ul class="infomation2">
+        <div class="title">◾️お客様へのご協力のお願い</div>
+        <li>店内では、飲食時以外のマスク着用をお願いいたします</li>
+        <li>入店時の手指の消毒にご協力ください</li>
+        <li>レジに並ぶ際、目安を示すフロアステッカーに沿った列間隔の確保にご協力ください</li>
+        <li>多数でお越しの際は、お一人がまとめてご注文願います（混雑時に入場制限をする場合がございます）</li>
+        <li>発熱や体調不良の際はご入店をお控えください</li>
+      </ul>
+      <ul class="infomation3">
+        <div class="title">◾️サービスに関して</div>
+        <li>直接お渡しする商品の提供、金銭授受時にグローブの着用</li>
+        <li>ドリンクやフードのサンプリング中止</li>
+        <li>地域活動・イベントの中止</li>
+        <li>混雑時間帯の客席の譲り合いへのご協力お願いの実施</li>
+        <li>店内設置しているミルク、はちみつ、パウダー類の一時引き下げ</li>
+        <li>混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限</li>
+      </ul>
+    </div>
+  </div>
+  
+  </div>
+  
+  <div class="container-fluid">
+    <footer>
+      <div class="footer-navbar">
+        <ul class="footer-nav-lists">
+          <li>プライバシーポリシー</li>
+          <li>お問い合わせ</li>
+          <li>運営会社</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 2,
+      spaceBetween: 10,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 2500, 
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 </html>
