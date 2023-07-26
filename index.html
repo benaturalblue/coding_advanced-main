@@ -23,6 +23,7 @@
       margin: 10px 0 0 20px;
     }
 
+
     .nav-lists {
       font-size: 20px;
       list-style-type: none;
@@ -83,6 +84,7 @@
 
     .main-page {
       background-color: #ffefd5;
+      margin-bottom: 0;
     }
 
     .infomation-content,
@@ -115,7 +117,9 @@
     .infomation1 ul,
     .infomation2 ul,
     .infomation3 ul {
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
     }
 
     .infomation1.active ul,
@@ -211,13 +215,89 @@
     .footer-navbar {
       background-color: darkgray;
       padding: 40px 0;
-      width: 100vw;
     }
 
     .footer-nav-lists {
       display: flex;
       justify-content: center;
       list-style: none;
+    }
+
+    .footer-nav-lists li {
+      margin: 0 20px;
+    }
+
+    @media (min-width: 600px) {
+      .menu-icon {
+        display: none;
+      }
+    }
+
+    /* スマートフォンサイズ */
+    @media (max-width: 599px) {
+      .swiper-container {
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .swiper-slide img {
+        object-position: center;
+      }
+
+      .nav-lists {
+        display: none;
+      }
+
+      .navbar.active .nav-lists {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-icon {
+        text-align: center;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-title {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .menu-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .menu-content {
+        width: 100%;
+        max-width: 90%;
+        margin: 0;
+      }
+
+      .access {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .shop-infomation {
+        display: none;
+      }
+
+      .footer-navbar {
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .footer-nav-lists li {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
@@ -228,12 +308,13 @@
       <div class="heading">
         <h1 class="shop-name">Casteria</h1>
       </div>
-      <div class="navbar">
-        <ul class="nav-lists">
-          <li>Home</li>
-          <li>Food</li>
-          <li>Drink</li>
-          <li>お問い合わせ</li>
+      <nav class="navbar">
+        <label for="menu-btn" class="menu-icon" id="menu-icon">&#9776;</label>
+        <ul class="nav-lists" id="nav-lists">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Drink</a></li>
+          <li><a href="#">お問い合わせ</a></li>
           <li>
             <form>
               <input type="text" placeholder="Search">
@@ -241,7 +322,9 @@
             </form>
           </li>
         </ul>
-      </div>
+      </nav>
+    </header>
+
     </header>
   </div>
 
@@ -271,7 +354,7 @@
       新型コロナウイルスに対する取り組みの最新情報をご案内
     </div>
     <div class="infomation-content">
-      <ul class="infomation1" onclick="toggleList('infomation1')">
+      <div class="infomation1" onclick="toggleList('infomation1')">
         <div class="title">◾️衛生面に関して</div>
         <ul>
           <li>マスクを着用しての接客</li>
@@ -281,8 +364,8 @@
           <li>テーブルにお客様用の消毒用アルコールの設置</li>
           <li>従業員間の距離確保のため、休憩や研修時の客席利用</li>
         </ul>
-      </ul>
-      <ul class="infomation2" onclick="toggleList('infomation2')">
+      </div>
+      <div class="infomation2" onclick="toggleList('infomation2')">
         <div class="title">◾️お客様へのご協力のお願い</div>
         <ul>
           <li>店内では、飲食時以外のマスク着用をお願いいたします</li>
@@ -291,8 +374,8 @@
           <li>多数でお越しの際は、お一人がまとめてご注文願います（混雑時に入場制限をする場合がございます）</li>
           <li>発熱や体調不良の際はご入店をお控えください</li>
         </ul>
-      </ul>
-      <ul class="infomation3" onclick="toggleList('infomation3')">
+      </div>
+      <div class="infomation3" onclick="toggleList('infomation3')">
         <div class="title">◾️サービスに関して</div>
         <ul>
           <li>直接お渡しする商品の提供、金銭授受時にグローブの着用</li>
@@ -302,8 +385,10 @@
           <li>店内設置しているミルク、はちみつ、パウダー類の一時引き下げ</li>
           <li>混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限</li>
         </ul>
-      </ul>
+      </div>
     </div>
+
+
 
     <div class="menu">
       <h2 class="menu-title">
@@ -339,7 +424,7 @@
 
     <div class="access-wrapper">
       <div class="access">
-        <div class="acccess-group">
+        <div class="access-group">
           <div class="access-text">
             <div class="access-title">
               Address
@@ -417,9 +502,23 @@
       },
     });
     function toggleList(className) {
-      var infoElement = document.querySelector('.' + className);
-      infoElement.classList.toggle('active');
+      var element = document.querySelector("." + className + " ul");
+      var maxHeight = window.getComputedStyle(element).maxHeight;
+
+      if (maxHeight === "0px") {
+        element.style.maxHeight = element.scrollHeight + "px";
+      } else {
+        element.style.maxHeight = "0px";
+      }
     }
+
+    document.getElementById("menu-icon").addEventListener("click", function () {
+      var navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("active");
+    });
+
+
+
   </script>
 </body>
 
