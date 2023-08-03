@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
   <style>
@@ -151,6 +152,14 @@
       margin-left: 55px;
     }
     
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
+    
   </style>
 </head>
 
@@ -247,7 +256,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container fade-in">
     <div class="row">
       <div class="col-md-6">
         <div class="img-container">
@@ -264,7 +273,7 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container fade-in">
     <div class="row">
       <div class="col-md-6">
         <div class="img-container">
@@ -281,7 +290,7 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container fade-in">
     <div class="row">
       <div class="col-md-6">
         <div class="img-container">
@@ -300,7 +309,7 @@
   
 
 
-  <div class="container">
+  <div class="container fade-in">
     <div class="access-wrapper">
       <div class="row">
         <div class="col-md-6">
@@ -330,10 +339,10 @@
   </div>
 
 
-  <div class="shop-infomation d-none d-md-block">
+  <div class="shop-infomation d-none d-md-block fade-in">
     店舗一覧
   </div>
-  <div class="row d-none d-md-flex">
+  <div class="row d-none d-md-flex fade-in">
     <div class="col-md-3">
       <img src="img/restaurant2.jpg" alt="Shop">
       <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
@@ -418,6 +427,17 @@
         element.style.maxHeight = "0px";
       }
     }
+    
+    $(window).on("scroll", function () {
+      $(".fade-in").each(function () {
+        const position = $(this).offset().top;
+        const scroll = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        if (scroll > position - windowHeight + 200) {
+          $(this).addClass("show");
+        }
+      });
+    });
   </script>
 
 
