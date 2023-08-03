@@ -1,28 +1,303 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hello</title>
-    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Casteria</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
 </head>
+
 <body>
-  <div class="container-fluid">
-    <form>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="Email">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightgray;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Casteria</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Food</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Drink</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">お問合せ</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+    </div>
+  </nav>
+
+
+  <div class="swiper-container" style="position: relative;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="img/interior.jpg" class="img-fluid" alt="Swiper1">
       </div>
-      <button type="submit" class="btn btn-primary">Button</button>
-    </form>
+      <div class="swiper-slide">
+        <img src="img/restaurant.jpg" class="img-fluid" alt="Swiper2">
+      </div>
+      <div class="swiper-slide">
+        <img src="img/food.jpg" class="img-fluid" alt="Swiper3">
+      </div>
+      <div class="swiper-slide">
+        <img src="img/food2.jpg" class="img-fluid" alt="Swiper4">
+      </div>
+    </div>
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
   </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="infomation text-center">
+      新型コロナウイルスに対する取り組みの最新情報をご案内
+    </div>
+  </div>
+  <div class="infomation-content">
+    <div class="infomation1" onclick="toggleList('infomation1')">
+      <div class="title">◾️衛生面に関して</div>
+      <ul>
+        <li>マスクを着用しての接客</li>
+        <li>出勤前の検温の徹底</li>
+        <li>レジカウンターやドリンク受け渡し口等への飛沫防止ガードの設置</li>
+        <li>より頻度の高い手洗いの励行</li>
+        <li>テーブルにお客様用の消毒用アルコールの設置</li>
+        <li>従業員間の距離確保のため、休憩や研修時の客席利用</li>
+      </ul>
+    </div>
+    <div class="infomation2" onclick="toggleList('infomation2')">
+      <div class="title">◾️お客様へのご協力のお願い</div>
+      <ul>
+        <li>店内では、飲食時以外のマスク着用をお願いいたします</li>
+        <li>入店時の手指の消毒にご協力ください</li>
+        <li>レジに並ぶ際、目安を示すフロアステッカーに沿った列間隔の確保にご協力ください</li>
+        <li>多数でお越しの際は、お一人がまとめてご注文願います（混雑時に入場制限をする場合がございます）</li>
+        <li>発熱や体調不良の際はご入店をお控えください</li>
+      </ul>
+    </div>
+    <div class="infomation3" onclick="toggleList('infomation3')">
+      <div class="title">◾️サービスに関して</div>
+      <ul>
+        <li>直接お渡しする商品の提供、金銭授受時にグローブの着用</li>
+        <li>ドリンクやフードのサンプリング中止</li>
+        <li>地域活動・イベントの中止</li>
+        <li>混雑時間帯の客席の譲り合いへのご協力お願いの実施</li>
+        <li>店内設置しているミルク、はちみつ、パウダー類の一時引き下げ</li>
+        <li>混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container fade-in">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-container">
+          <img class="img-fluid" src="img/food.jpg">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-container">
+          <p class="text-content">
+            サーモンは刺身やカルパッチョで食べるのが美味しいですが、リッチな気分になれるサーモンステーキがおすすめです。
+            サーモンの美味しさを引き立てる2種のソースも絶品です！
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container fade-in">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-container">
+          <img class="img-fluid" src="img/barista.jpg">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-container">
+          <p class="text-content">
+            当店のコーヒー豆は厳選して世界中から買い付けています。
+            そして、そのコーヒー豆の美味しさを最大限に引き出すために自社のロースタリーで焙煎しています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container fade-in">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-container">
+          <img class="img-fluid" src="img/food3.jpg">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-container">
+          <p class="text-content">
+            当店は何よりまずは衛生管理に気をつけています。「安全・安心」をお届けするために日々継続的な努力を惜しみません。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <div class="container fade-in">
+    <div class="access-wrapper">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="access-text">
+            <div class="access-title">
+              Address
+            </div>
+            <div class="access-content">
+              681 xxxx Drive, xxxxx xxxx #01 - 06 000000 <br>
+              Opening Hours
+            </div>
+            <div class="access-title">
+              Mondays - Friday: 10am - 9pm
+            </div>
+            <div class="access-content">
+              Saturdays, Sundays & Public Holidays: 9am - 9pm
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="access-container">
+            <img class="img-fluid" src="img/barista.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="shop-infomation d-none d-md-block fade-in">
+    店舗一覧
+  </div>
+  <div class="row d-none d-md-flex fade-in">
+    <div class="col-md-3">
+      <img src="img/restaurant2.jpg" alt="Shop">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
+          viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        </svg>東京都渋谷区xxxxxx xxxxx</p>
+    </div>
+    <div class="col-md-3">
+      <img src="img/restaurant3.jpg" alt="Shop">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
+          viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        </svg>千葉県松戸市xxxxx xxxxx</p>
+    </div>
+    <div class="col-md-3">
+      <img src="img/restaurant4.jpg" alt="Shop">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
+          viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        </svg>神奈川県横浜市xxxxx xxxx</p>
+    </div>
+    <div class="col-md-3">
+      <img src="img/restaurant5.jpg" alt="Shop">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
+          viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        </svg>埼玉県川越市xxxxx xxxx</p>
+    </div>
+  </div>
+
+
+
+  <footer style="background-color: darkgray;" class="text-center">
+    <div class="container">
+      <p class="my-0 py-3 d-inline-block">プライバシーポリシー</p>
+      <p class="my-0 py-3 d-inline-block">お問合せ</p>
+      <p class="my-0 py-3 d-inline-block">運営会社</p>
+    </div>
+  </footer>
+
+
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 0,
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 2500,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+          hide: false,
+          draggable: true
+        },
+      });
+    });
+
+
+
+    function toggleList(className) {
+      var element = document.querySelector("." + className + " ul");
+      var maxHeight = window.getComputedStyle(element).maxHeight;
+
+      if (maxHeight === "0px") {
+        element.style.maxHeight = element.scrollHeight + "px";
+      } else {
+        element.style.maxHeight = "0px";
+      }
+    }
+    
+    $(window).on("scroll", function () {
+      $(".fade-in").each(function () {
+        const position = $(this).offset().top;
+        const scroll = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        if (scroll > position - windowHeight + 200) {
+          $(this).addClass("show");
+        }
+      });
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
+
 </html>
